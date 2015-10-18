@@ -1,0 +1,6 @@
+---
+- hosts: sugarappservers
+  vars_files:
+    - vars/php_main.yml
+  roles:
+    - { role: geerlingguy.php }

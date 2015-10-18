@@ -1,0 +1,7 @@
+---
+- name: Ping 
+  hosts: sugarappservers 
+  gather_facts: yes
+  tasks:
+  - name: ping
+    ping:

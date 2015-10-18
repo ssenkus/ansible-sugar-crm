@@ -1,0 +1,9 @@
+---
+- name: Download Sugar CRM zipped from sourceforge
+  hosts: sugarappservers
+  tasks:
+  - apt: name=unzip state=present
+  - get_url: url=http://downloads.sourceforge.net/project/sugarcrm/1%20-%20SugarCRM%206.5.X/SugarCommunityEdition-6.5.X/SugarCE-6.5.22.zip dest=/var/www/html mode=0775
+  - unarchive: src=/var/www/html/SugarCE-6.5.22.zip dest=/var/www/html copy=no
+  - command: mv /var/www/html/SugarCE-Full-6.5.22 /var/www/html/sugar
+  - command: chown www-data:www-data -R /var/www/html/sugar/
