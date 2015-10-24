@@ -1,6 +1,8 @@
 ---
 - hosts: sugarappservers
   tasks:
+    - name: 0. Update Ubuntu
+      apt: update_cache=yes
     - name: 1. install Apache
       apt: name=apache2 state=present
 
